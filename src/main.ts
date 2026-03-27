@@ -7,31 +7,31 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.useGlobalPipes(new ValidationPipe());
-  // ⚡ Activer CORS pour le frontend
-  // app.enableCors({
-  //   // origin: 'http://localhost:3000',
-  //   origin: 'https://objecte-manager-frontend.vercel.app',// ton frontend
-  //   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  //   credentials: true,
-  // });
-  const allowedOrigins = [
-  'http://192.168.1.55:3000',
-  'https://objecte-manager-frontend.vercel.app',
-  'https://autre-frontend.com',
-];
+  ⚡ Activer CORS pour le frontend
+  app.enableCors({
+    origin: 'http://localhost:3000',
+    origin: 'https://objecte-manager-frontend.vercel.app',// ton frontend
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+  });
+//   const allowedOrigins = [
+//   'http://192.168.1.55:3000',
+//   'https://objecte-manager-frontend.vercel.app',
+//   'https://autre-frontend.com',
+// ];
 
-app.enableCors({
-  origin: (origin, callback) => {
-    // Si aucune origine (ex: Postman) ou si l’origine est dans la liste
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Origin non autorisée'));
-    }
-  },
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true,
-});
+// app.enableCors({
+//   origin: (origin, callback) => {
+//     // Si aucune origine (ex: Postman) ou si l’origine est dans la liste
+//     if (!origin || allowedOrigins.includes(origin)) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error('Origin non autorisée'));
+//     }
+//   },
+//   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+//   credentials: true,
+// });
 
   const config = new DocumentBuilder()
     .setTitle('Objects API')
