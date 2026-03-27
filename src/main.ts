@@ -15,7 +15,7 @@ async function bootstrap() {
   //   credentials: true,
   // });
   const allowedOrigins = [
-  'http://localhost:3000',
+  'http://192.168.1.55:3000',
   'https://objecte-manager-frontend.vercel.app',
   'https://autre-frontend.com',
 ];
