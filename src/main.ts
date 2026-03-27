@@ -7,7 +7,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.useGlobalPipes(new ValidationPipe());
-  ⚡ Activer CORS pour le frontend
+  // ⚡ Activer CORS pour le frontend
   app.enableCors({
     origin: 'http://192.168.1.55:3000',
     // origin: 'https://objecte-manager-frontend.vercel.app',// ton frontend
