@@ -9,7 +9,7 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe());
   // ⚡ Activer CORS pour le frontend
   app.enableCors({
-    origin: 'http://192.168.1.55:3000',
+    origin: '*',
     // origin: 'https://objecte-manager-frontend.vercel.app',// ton frontend
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
